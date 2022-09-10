@@ -10,6 +10,7 @@ class USBInterface:
             self.device.detach_kernel_driver(self.interface_number)
         self.device.set_configuration()
         self.eaddr = self.ep.bEndpointAddress
+        self.loop_enabled = True
     def get_raw_read(self):
         read = list(self.device.read(self.eaddr, 8))
         return read
